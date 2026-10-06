@@ -332,28 +332,74 @@ body {
 
 /* ---------- memories ---------- */
 
-.memories {
-  margin-top: 64px;
-}
-.mem-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 18px;
-}
-.mem-card {
-  margin: 0;
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
-}
-.mem-card img {
-  display: block;
+.mem-slider {
+  position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  max-width: 1000px;
+  height: 650px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.mem-grid {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.mem-card {
+  position: absolute;
+  width: 340px;
+  transition: all 0.8s ease;
+  border-radius: 20px;
+  overflow: hidden;
+  transform-origin: center;
+  background: linear-gradient(
+    150deg,
+    #5a2f7d 0%,
+    #3b2060 35%,
+    #241544 70%,
+    #1c1038 100%
+  );
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.mem-card img {
+  width: 100%;
+  height: 420px;
   object-fit: cover;
-  transition: transform 0.5s ease;
+}
+
+.mem-card.active {
+  left: 50%;
+  top: 50%;
+  width: 360px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  opacity: 1;
+}
+
+.mem-card.prev {
+  left: -80px; /* push outside */
+  top: 50%;
+  width: 240px;
+  transform: translateY(-50%);
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.mem-card.next {
+  right: -80px; /* push outside */
+  top: 50%;
+  width: 240px;
+  transform: translateY(-50%);
+  opacity: 0.9;
+  z-index: 2;
+}
+
+.mem-card.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 .mem-card:hover img {
   transform: scale(1.05);
@@ -404,14 +450,20 @@ body {
     transform 0.2s ease,
     box-shadow 0.2s ease;
 }
+
 .btn:hover {
   transform: translateY(-2px);
 }
+
 .btn-primary {
+  display: inline-flex;
+  visibility: visible;
+  opacity: 1;
   background: linear-gradient(135deg, #f472b6, #c94fd8);
   color: #fff;
   box-shadow: 0 12px 30px -10px rgba(236, 92, 156, 0.55);
 }
+
 .btn-ghost {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -420,7 +472,10 @@ body {
 
 .rsvp {
   margin-top: 64px;
+  visibility: visible;
+  opacity: 1;
 }
+
 .rsvp-actions {
   display: flex;
   flex-direction: column;
@@ -428,9 +483,17 @@ body {
   gap: 12px;
   margin-top: 24px;
 }
+
 .rsvp-actions .btn {
   min-width: 240px;
 }
+
+#whatsapp-btn {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
 #rsvp-note {
   margin-top: 14px;
 }

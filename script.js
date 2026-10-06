@@ -1,5 +1,5 @@
 /* ============================================================
-   AARVI'S 10TH BIRTHDAY INVITATION — SETTINGS
+   Savera'S 10TH BIRTHDAY INVITATION — SETTINGS
    ------------------------------------------------------------
    Edit the values below, then re-upload this file to GitHub.
    See README.md for step-by-step instructions.
@@ -9,22 +9,21 @@ const CONFIG = {
 
   // 1) The final address of your website on GitHub Pages.
   //    After you publish, replace YOUR-USERNAME with your GitHub
-  //    username and aarvi-birthday-invite with your repository name.
+  //    username and Savera-birthday-invite with your repository name.
   //    The QR code below updates automatically.
-  siteUrl: "https://YOUR-USERNAME.github.io/aarvi-birthday-invite/",
+  siteUrl: "https://sagarbparhad.github.io/savera_bday_invitation/",
 
   // 2) Date & time of the party (year-month-day, 24h time, +05:30 = India time)
-  eventDate: "2027-06-14T13:00:00+05:30",
-  eventEnd: "2027-06-14T16:00:00+05:30",
+  eventDate: "2026-10-10T19:00:00+05:30",
 
   // 3) Where the party happens (used for the "Open in Maps" link
   //    and the calendar file)
-  venue: "The Sunshine Garden, 128 Marigold Lane",
-  mapQuery: "128 Marigold Lane",
+  venue: "Tarangan Socity",
+  mapQuery: "Rohini apt, wayle nagar, kalyan (west)",
 
   // 4) WhatsApp number for RSVP — country code first, digits only,
   //    e.g. "919876543210". Leave "" to hide the WhatsApp button.
-  whatsapp: "",
+  whatsapp: "918767225263",
 };
 
 /* ============================================================
@@ -210,13 +209,13 @@ const CONFIG = {
     const ics = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Aarvi 10th Birthday//EN",
+      "PRODID:-//Savera 10th Birthday//EN",
       "BEGIN:VEVENT",
-      "UID:aarvi-10-" + Date.now() + "@invite",
+      "UID:Savera-10-" + Date.now() + "@invite",
       "DTSTAMP:" + stamp(new Date().toISOString()),
       "DTSTART:" + stamp(CONFIG.eventDate),
       "DTEND:" + stamp(CONFIG.eventEnd),
-      "SUMMARY:Aarvi's 10th Birthday 🎉",
+      "SUMMARY:Savera's 10th Birthday 🎉",
       "LOCATION:" + CONFIG.venue,
       "DESCRIPTION:Games\\, cake and a piñata! Bring your dancing shoes.",
       "END:VEVENT",
@@ -225,29 +224,105 @@ const CONFIG = {
     const blob = new Blob([ics], { type: "text/calendar" });
     const a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
-    a.download = "aarvis-10th-birthday.ics";
+    a.download = "Saveras-10th-birthday.ics";
     a.click();
     URL.revokeObjectURL(a.href);
   });
 })();
 
 /* ---------- WhatsApp RSVP ---------- */
+
 (function initWhatsApp() {
   const btn = document.getElementById("whatsapp-btn");
   if (!btn) return;
+
   if (CONFIG.whatsapp && /^\d+$/.test(CONFIG.whatsapp)) {
+    const message =
+      "Yes! We'll be there for Aarvi's 10th birthday! 🎉" +
+      "\n\n📅 Date: 10 October 2026" +
+      "\n⏰ Time: 7:00 PM" +
+      "\n📍 Venue: Tarangan Society" +
+      "\n📌 Address: Rohini Apt, Wayle Nagar, Kalyan (West)";
+
     btn.href =
-      "https://wa.me/" + CONFIG.whatsapp +
-      "?text=" + encodeURIComponent("Yes! We'll be there for Aarvi's 10th birthday! \uD83C\uDF89");
+      "https://wa.me/" +
+      CONFIG.whatsapp +
+      "?text=" +
+      encodeURIComponent(message);
+
+    btn.style.display = "inline-flex";
   } else {
     btn.style.display = "none";
+
     const note = document.getElementById("rsvp-note");
     if (note) note.classList.remove("hidden");
   }
 })();
+
+
 
 /* ---------- Footer year ---------- */
 (function initFooter() {
   const el = document.getElementById("footer-year");
   if (el) el.textContent = new Date().getFullYear();
 })();
+
+
+(function () {
+
+    const cards = document.querySelectorAll(".mem-card");
+
+    let current = 0;
+
+    function updateCards(){
+
+        cards.forEach(card=>{
+            card.className="mem-card hidden";
+        });
+
+        const prev=(current-1+cards.length)%cards.length;
+        const next=(current+1)%cards.length;
+
+        cards[current].className="mem-card active";
+        cards[prev].className="mem-card prev";
+        cards[next].className="mem-card next";
+    }
+
+    updateCards();
+
+    setInterval(()=>{
+        current=(current+1)%cards.length;
+        updateCards();
+    },3000);
+
+})();
+
+
+// (function initMemoriesSlider() {
+//   const slider = document.querySelector(".mem-grid");
+//   if (!slider) return;
+
+//   const cards = slider.querySelectorAll(".mem-card");
+//   if (!cards.length) return;
+
+//   let currentIndex = 0;
+
+//   function showMemory(index) {
+//     cards.forEach(function (card) {
+//       card.style.transform =
+//         "translateX(-" + index * 100 + "%)";
+//     });
+//   }
+
+//   showMemory(currentIndex);
+
+//   setInterval(function () {
+//     currentIndex++;
+
+//     if (currentIndex >= cards.length) {
+//       currentIndex = 0;
+//     }
+
+//     showMemory(currentIndex);
+//   }, 2000);
+// })();
