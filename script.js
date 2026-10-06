@@ -238,7 +238,7 @@ const CONFIG = {
 
   if (CONFIG.whatsapp && /^\d+$/.test(CONFIG.whatsapp)) {
     const message =
-      "Yes! We'll be there for Aarvi's 10th birthday! 🎉" +
+      "Yes! We'll be there for Savera's 10th birthday! 🎉" +
       "\n\n📅 Date: 10 October 2026" +
       "\n⏰ Time: 7:00 PM" +
       "\n📍 Venue: Tarangan Society" +
