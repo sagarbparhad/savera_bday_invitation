@@ -330,19 +330,17 @@ body {
   margin: 30px 12px 0 !important;
 }
 
-/* ---------- memories ---------- */
-/* ---------- memories ---------- */
-/* ==========================
+/* ==========================================
    Memories Slider
-========================== */
+========================================== */
 
 .mem-slider {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  height: clamp(420px, 75vw, 650px);
   margin: 0 auto;
   overflow: hidden;
+  height: clamp(560px, 80vw, 760px);
 }
 
 .mem-grid {
@@ -353,7 +351,7 @@ body {
 
 .mem-card {
   position: absolute;
-  width: clamp(220px, 32vw, 340px);
+  width: clamp(220px, 30vw, 320px);
   transition: all 0.8s ease;
   border-radius: 20px;
   overflow: hidden;
@@ -365,13 +363,16 @@ body {
     #241544 70%,
     #1c1038 100%
   );
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
 }
+
+/* Default Image */
 
 .mem-card img {
   width: 100%;
-  height: clamp(250px, 42vw, 420px);
+  height: 260px;
   object-fit: cover;
+  display: block;
   transition: transform 0.5s ease;
 }
 
@@ -379,10 +380,12 @@ body {
   transform: scale(1.05);
 }
 
-/* Active Card */
+/* ==========================================
+   Active Card
+========================================== */
 
 .mem-card.active {
-  width: clamp(250px, 42vw, 380px);
+  width: clamp(300px, 42vw, 420px);
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -390,26 +393,44 @@ body {
   z-index: 3;
 }
 
-/* Previous Card */
+/* Much taller image */
+
+.mem-card.active img {
+  height: 500px;
+}
+
+/* ==========================================
+   Previous Card
+========================================== */
 
 .mem-card.prev {
-  width: clamp(140px, 24vw, 240px);
-  left: -8%;
+  width: clamp(150px, 22vw, 220px);
+  left: -5%;
   top: 55%;
   transform: translateY(-50%);
-  opacity: 0.85;
+  opacity: 0.8;
   z-index: 2;
 }
 
-/* Next Card */
+.mem-card.prev img {
+  height: 240px;
+}
+
+/* ==========================================
+   Next Card
+========================================== */
 
 .mem-card.next {
-  width: clamp(140px, 24vw, 240px);
-  right: -8%;
+  width: clamp(150px, 22vw, 220px);
+  right: -5%;
   top: 45%;
   transform: translateY(-50%);
-  opacity: 0.85;
+  opacity: 0.8;
   z-index: 2;
+}
+
+.mem-card.next img {
+  height: 240px;
 }
 
 .mem-card.hidden {
@@ -431,8 +452,8 @@ body {
 
 .mem-card h3 {
   font-family: var(--font-serif);
-  font-size: 19px;
-  margin: 6px 0 4px;
+  font-size: 20px;
+  margin: 8px 0 5px;
 }
 
 .mem-card p {
@@ -442,42 +463,70 @@ body {
   color: var(--muted);
 }
 
-/* ==========================
-   Tablet
-========================== */
+/* ==========================================
+   Laptop
+========================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .mem-slider {
-    height: 500px;
+    height: 650px;
   }
 
   .mem-card.active {
-    width: 72%;
+    width: 52%;
+  }
+
+  .mem-card.active img {
+    height: 430px;
   }
 
   .mem-card.prev,
   .mem-card.next {
-    width: 42%;
+    width: 24%;
+  }
+}
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width: 768px) {
+  .mem-slider {
+    height: 600px;
+  }
+
+  .mem-card.active {
+    width: 70%;
+  }
+
+  .mem-card.active img {
+    height: 380px;
+  }
+
+  .mem-card.prev,
+  .mem-card.next {
+    width: 30%;
   }
 
   .mem-card.prev {
-    left: -18%;
+    left: -10%;
     top: 55%;
   }
 
   .mem-card.next {
-    right: -18%;
+    right: -10%;
     top: 45%;
   }
 
-  .mem-card img {
-    height: 280px;
+  .mem-card.prev img,
+  .mem-card.next img {
+    height: 210px;
   }
 }
 
-/* ==========================
+/* ==========================================
    Mobile
-========================== */
+========================================== */
 
 @media (max-width: 480px) {
   .wrap {
@@ -493,30 +542,34 @@ body {
   }
 
   .mem-slider {
-    height: 430px;
+    height: 520px;
   }
 
   .mem-card.active {
-    width: 78%;
+    width: 85%;
+  }
+
+  .mem-card.active img {
+    height: 330px;
   }
 
   .mem-card.prev,
   .mem-card.next {
-    width: 36%;
+    width: 28%;
+    opacity: 0.5;
   }
 
   .mem-card.prev {
-    left: -12%;
-    top: 55%;
+    left: -15%;
   }
 
   .mem-card.next {
-    right: -12%;
-    top: 45%;
+    right: -15%;
   }
 
-  .mem-card img {
-    height: 220px;
+  .mem-card.prev img,
+  .mem-card.next img {
+    height: 170px;
   }
 
   .mem-card h3 {
@@ -532,9 +585,33 @@ body {
   }
 }
 
-/* ==========================
+/* ==========================================
+   Small Phones
+========================================== */
+
+@media (max-width: 360px) {
+  .mem-slider {
+    height: 500px;
+  }
+
+  .mem-card.active {
+    width: 92%;
+  }
+
+  .mem-card.active img {
+    height: 300px;
+  }
+
+  /* Hide previews on very small screens */
+  .mem-card.prev,
+  .mem-card.next {
+    display: none;
+  }
+}
+
+/* ==========================================
    Reduced Motion
-========================== */
+========================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .reveal {
