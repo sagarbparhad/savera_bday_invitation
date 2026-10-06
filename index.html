@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Savera is Turning 10 — You're Invited!</title>
+    <meta
+      name="description"
+      content="You're invited to Savera's 10th birthday — an afternoon of cake, games and confetti. Scan, smile, and see you there!"
+    />
+    <meta
+      property="og:title"
+      content="Savera is Turning 10 — You're Invited!"
+    />
+    <meta
+      property="og:description"
+      content="An afternoon of cake, games and confetti. Open the invitation."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎂</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600;1,700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="sparkles" aria-hidden="true"></div>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+
+    <main class="wrap">
+      <!-- ============ Hero invitation card ============ -->
+      <section class="hero-card reveal">
+        <div class="birthday-photo-wrap">
+          <div class="photo-glow"></div>
+          <img
+            src="images/birthday-girl.jpeg"
+            alt="Birthday girl Savera"
+            class="birthday-photo"
+          />
+          <span class="photo-star star-1">✦</span>
+          <span class="photo-star star-2">✧</span>
+          <span class="photo-star star-3">✦</span>
+        </div>
+
+        <p class="eyebrow">You're invited to</p>
+
+        <h1 class="name">
+          Savera<i class="dot dot-teal"></i><i class="dot dot-violet"></i>
+        </h1>
+
+        <p class="hero-copy">
+          is turning ten — the big double-digits! Come unwrap the whole
+          afternoon of cake, games and confetti with us.
+        </p>
+
+        <button
+          class="badge"
+          id="party-badge"
+          type="button"
+          title="Tap for confetti!"
+        >
+          <span class="badge-num">10</span>&nbsp;years of sparkle
+        </button>
+
+        <p class="scroll-hint">scroll for her story ↓</p>
+      </section>
+
+      <!-- ============ Countdown ============ -->
+      <section class="card count-card reveal" aria-label="Countdown">
+        <p class="label teal center">Counting down to the sparkle</p>
+        <div class="count" id="countdown">
+          <div><b id="cd-days">–</b><span>days</span></div>
+          <div><b id="cd-hours">–</b><span>hours</span></div>
+          <div><b id="cd-mins">–</b><span>mins</span></div>
+          <div><b id="cd-secs">–</b><span>secs</span></div>
+        </div>
+      </section>
+
+      <!-- ============ When / Where / What ============ -->
+      <section class="cards">
+        <article class="card reveal">
+          <p class="label teal">When</p>
+          <h2>Saturday, Oct 10</h2>
+          <p class="muted">7:00 PM – 9:00 PM · bring your dancing shoes</p>
+          <div class="card-actions">
+            <a class="btn btn-ghost" id="calendar-btn" href="#"
+              >📅 Add to calendar</a
+            >
+          </div>
+        </article>
+        <div class="card-pair">
+          <article class="card reveal">
+            <p class="label teal">Where</p>
+            <h2>Tarangan Society</h2>
+            <p class="muted">
+              Flat No. 104, Rohini Apt, Tarangan Society, Wayle Nagar,
+              Khadakpada, 421301
+            </p>
+            <div class="card-actions">
+              <a
+                class="maps-link"
+                id="maps-link"
+                href="https://www.google.com/maps/search/?api=1&query=Flat+No.+104%2C+Tarangan+Society%2C+Wayle+Nagar%2C+Khadakpada%2C+421301"
+                target="_blank"
+                rel="noopener"
+                >Open in Maps →</a
+              >
+            </div>
+          </article>
+          <article class="card reveal">
+            <p class="label pink">What to expect</p>
+            <h2>Games, cake &amp; a piñata</h2>
+            <p class="muted">
+              Squishy balloons, a treasure hunt and a mountain of frosting.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============ A little letter ============ -->
+      <section class="letter reveal">
+        <p class="eyebrow center">A little letter</p>
+        <h2 class="section-title">Ten years of you</h2>
+        <p>
+          Ten years ago you arrived — tiny fists, enormous eyes — and quietly
+          rearranged all of our lives around your laugh.
+        </p>
+        <p>
+          Since then you have filled our home with glitter in places glitter
+          should never be, songs at breakfast, drawings on every wall (we kept
+          every single one), and a kind of love we didn't know existed before
+          you.
+        </p>
+        <p>
+          You are brave in small ways and kind in loud ones. You dance before
+          the music starts. You make strangers smile at bus stops.
+        </p>
+        <p>Ten looks so good on you already. Come celebrate the sparkle.</p>
+        <p class="pull">
+          “Ten years of giggles, glitter and growing up too fast.”
+        </p>
+      </section>
+
+      <!-- ============ Childhood memories ============ -->
+      <section class="memories">
+        <p class="eyebrow center">Childhood memories</p>
+        <h2 class="section-title">Ten years, ten little moments</h2>
+        <div class="mem-grid">
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-1.jpeg"
+              alt="Illustration of baby booties and a teddy bear"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2017</span>
+              <h3>A tiny hello</h3>
+              <p>You arrived and made us a family.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-2.png"
+              alt="Photograph of a baby in a pink top holding a colorful soccer ball"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2018</span>
+              <h3>First Kick</h3>
+              <p>Exploring a new game, one colorful panel at a time.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-3.jpeg"
+              alt="Portrait of a young girl in a grey dress with gold embroidery"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2019</span>
+              <h3>Dressed in Gold and Grey</h3>
+              <p>A special moment on the terrace, full of smiles.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-4.jpeg"
+              alt="Portrait of a smiling girl in a purple traditional saree"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2020</span>
+              <h3>Dressed to Impress</h3>
+              <p>All smiles in her beautiful saree, ready to celebrate.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-5.jpeg"
+              alt="Photograph of a young girl in a denim romper and sunglasses"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2021</span>
+              <h3>Sunny Window Pose</h3>
+              <p>Striking a cool pose by the window, sunglasses on.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-6.jpeg"
+              alt="Photograph of a young girl in a patterned dress holding a white rabbit"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2022</span>
+              <h3>A Gentle Friend</h3>
+              <p>Proudly holding the fluffy new family member.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-7.png"
+              alt="Portrait of a young girl in traditional Maharashtrian attire"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2023</span>
+              <h3>Cultural Celebration</h3>
+              <p>Draped in tradition, celebrating Ganesh Chaturthi.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-8.jpeg"
+              alt="Photograph of a young girl in a blue dress riding a spotted horse"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2024</span>
+              <h3>A Gentle Ride</h3>
+              <p>A picturesque day on the farm, exploring on horseback.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-9.png"
+              alt="Portrait of a young girl in traditional Kashmiri attire"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2025</span>
+              <h3>A Mountain Adventure</h3>
+              <p>Exploring the rocky paths, dressed in heritage.</p>
+            </figcaption>
+          </figure>
+          <figure class="mem-card reveal">
+            <img
+              src="images/memory-10.jpeg"
+              alt="Illustration of a birthday cake with ten candles"
+              loading="lazy"
+            />
+            <figcaption>
+              <span class="mem-year">2026</span>
+              <h3>Ten!</h3>
+              <p>The year of double digits begins.</p>
+            </figcaption>
+          </figure>
+        </div>
+        <p class="muted small center note">
+          These are placeholder illustrations — swap in her real photos (see the
+          README).
+        </p>
+      </section>
+
+      <!-- ============ RSVP ============ -->
+      <section class="rsvp reveal">
+        <p class="eyebrow center">RSVP</p>
+        <h2 class="section-title">Will you come sparkle with us?</h2>
+        <p class="muted center">
+          Tell us you're coming — it makes the cake taste better.
+        </p>
+        <div class="rsvp-actions">
+          <a
+            class="btn btn-primary"
+            id="whatsapp-btn"
+            href="#"
+            target="_blank"
+            rel="noopener"
+            >RSVP on WhatsApp 💬</a
+          >
+        </div>
+        <p class="muted small center hidden" id="rsvp-note">
+          Add your WhatsApp number in <b>script.js</b> to switch this button on.
+        </p>
+      </section>
+
+      <!-- ============ QR code ============ -->
+      <section class="qr-card reveal">
+        <div
+          class="qr-frame"
+          id="qrcode"
+          role="img"
+          aria-label="QR code linking to this invitation"
+        ></div>
+        <p class="qr-title">Scan to open this invitation</p>
+        <p class="muted small center" id="qr-note">
+          Point any phone camera at the code — the party details come right up.
+        </p>
+      </section>
+
+      <footer class="footer">
+        <p>Made with love, sprinkles and sleep deprivation</p>
+        <p class="muted small">
+          Savera · 10 · <span id="footer-year"></span> ✦
+        </p>
+      </footer>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
