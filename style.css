@@ -331,12 +331,15 @@ body {
 }
 
 /* ---------- memories ---------- */
+/* ==========================
+   Memories Slider
+========================== */
 
 .mem-slider {
   position: relative;
   width: 100%;
   max-width: 1000px;
-  height: 650px;
+  height: clamp(420px, 75vw, 650px);
   margin: 0 auto;
   overflow: hidden;
 }
@@ -349,7 +352,7 @@ body {
 
 .mem-card {
   position: absolute;
-  width: 340px;
+  width: clamp(220px, 32vw, 340px);
   transition: all 0.8s ease;
   border-radius: 20px;
   overflow: hidden;
@@ -366,34 +369,45 @@ body {
 
 .mem-card img {
   width: 100%;
-  height: 420px;
+  height: clamp(250px, 42vw, 420px);
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
+
+.mem-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Active Card */
 
 .mem-card.active {
+  width: clamp(250px, 42vw, 380px);
   left: 50%;
   top: 50%;
-  width: 360px;
   transform: translate(-50%, -50%);
-  z-index: 3;
   opacity: 1;
+  z-index: 3;
 }
 
+/* Previous Card */
+
 .mem-card.prev {
-  left: -80px; /* push outside */
-  top: 50%;
-  width: 240px;
+  width: clamp(140px, 24vw, 240px);
+  left: -8%;
+  top: 55%;
   transform: translateY(-50%);
-  opacity: 0.9;
+  opacity: 0.85;
   z-index: 2;
 }
 
+/* Next Card */
+
 .mem-card.next {
-  right: -80px; /* push outside */
-  top: 50%;
-  width: 240px;
+  width: clamp(140px, 24vw, 240px);
+  right: -8%;
+  top: 45%;
   transform: translateY(-50%);
-  opacity: 0.9;
+  opacity: 0.85;
   z-index: 2;
 }
 
@@ -401,12 +415,11 @@ body {
   opacity: 0;
   pointer-events: none;
 }
-.mem-card:hover img {
-  transform: scale(1.05);
-}
+
 .mem-card figcaption {
   padding: 16px 18px 20px;
 }
+
 .mem-year {
   font-size: 11px;
   letter-spacing: 0.18em;
@@ -414,21 +427,129 @@ body {
   color: var(--teal);
   font-weight: 600;
 }
+
 .mem-card h3 {
   font-family: var(--font-serif);
   font-size: 19px;
-  font-weight: 600;
   margin: 6px 0 4px;
 }
+
 .mem-card p {
   margin: 0;
   font-size: 13px;
   line-height: 1.6;
   color: var(--muted);
 }
-.note {
-  margin-top: 18px;
-  opacity: 0.75;
+
+/* ==========================
+   Tablet
+========================== */
+
+@media (max-width: 768px) {
+  .mem-slider {
+    height: 500px;
+  }
+
+  .mem-card.active {
+    width: 72%;
+  }
+
+  .mem-card.prev,
+  .mem-card.next {
+    width: 42%;
+  }
+
+  .mem-card.prev {
+    left: -18%;
+    top: 55%;
+  }
+
+  .mem-card.next {
+    right: -18%;
+    top: 45%;
+  }
+
+  .mem-card img {
+    height: 280px;
+  }
+}
+
+/* ==========================
+   Mobile
+========================== */
+
+@media (max-width: 480px) {
+  .wrap {
+    padding: 32px 16px 64px;
+  }
+
+  .hero-card {
+    padding: 36px 24px 32px;
+  }
+
+  .card-pair {
+    grid-template-columns: 1fr;
+  }
+
+  .mem-slider {
+    height: 430px;
+  }
+
+  .mem-card.active {
+    width: 78%;
+  }
+
+  .mem-card.prev,
+  .mem-card.next {
+    width: 36%;
+  }
+
+  .mem-card.prev {
+    left: -12%;
+    top: 55%;
+  }
+
+  .mem-card.next {
+    right: -12%;
+    top: 45%;
+  }
+
+  .mem-card img {
+    height: 220px;
+  }
+
+  .mem-card h3 {
+    font-size: 16px;
+  }
+
+  .mem-card p {
+    font-size: 12px;
+  }
+
+  .count b {
+    font-size: 20px;
+  }
+}
+
+/* ==========================
+   Reduced Motion
+========================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .sparkle {
+    animation: none;
+    opacity: 0.25;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 /* ---------- buttons ---------- */
@@ -590,39 +711,6 @@ body {
 }
 
 /* ---------- responsive ---------- */
-
-@media (max-width: 480px) {
-  .wrap {
-    padding: 32px 16px 64px;
-  }
-  .hero-card {
-    padding: 36px 24px 32px;
-  }
-  .card-pair {
-    grid-template-columns: 1fr;
-  }
-  .mem-grid {
-    grid-template-columns: 1fr;
-  }
-  .count b {
-    font-size: 20px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  .sparkle {
-    animation: none;
-    opacity: 0.25;
-  }
-  html {
-    scroll-behavior: auto;
-  }
-}
 
 /* Birthday girl photo */
 .birthday-photo-wrap {
